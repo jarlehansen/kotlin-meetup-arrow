@@ -15,6 +15,10 @@ suspend fun two() = Random().nextInt(4).also {
     sleep(Duration(it.toLong(), TimeUnit.SECONDS))
 }
 
+suspend fun three() = Random().nextInt(4).also {
+    sleep(Duration(it.toLong(), TimeUnit.SECONDS))
+}
+
 fun main() = runBlocking {
     repeat(5) {
         raceN({ one() }, { two() }).map {
